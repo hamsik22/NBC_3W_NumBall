@@ -6,11 +6,8 @@
 //
 import Foundation
 
+// 게임 인스턴스 생성
 let game = BaseballGame()
-// 게임을 시작한다.
-game.start()
-// 값을 입력받는다.
-// 잘못된 값을 입력받을 경우 오류 문구 출력
-// 값을 비교
 
-// 결과를 출력
+// 게임 시작하기
+game.start()

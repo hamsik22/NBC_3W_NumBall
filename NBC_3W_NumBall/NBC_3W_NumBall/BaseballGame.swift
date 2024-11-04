@@ -9,16 +9,15 @@ import Foundation
 
 class BaseballGame {
     
-    private var numBall: [String] = []
+    private var numBall: [String] = [] // 정답 번호
+    private var answer: String = "" // 입력 번호
     private var isAnswerCorrect: Bool = false
-    private var answer: String = ""
     private var strike: Int = 0
     private var ball: Int = 0
     
     /// 게임을 시작하는 함수
     func start() {
         self.numBall = makeAnswer()
-        print("정답 : \(numBall)")
         play()
     }
     
@@ -77,9 +76,9 @@ class BaseballGame {
                 self.isAnswerCorrect = true
             }
         }
-        print("\(numBall):\(inputArray)")
     }
     
+    /// 힌트를 출력하는 함수
     func printHint() {
         if self.strike > 0 && self.ball > 0 {
             print("\(strike)스트라이크 \(ball)볼")
