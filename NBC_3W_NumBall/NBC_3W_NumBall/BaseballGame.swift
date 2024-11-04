@@ -17,7 +17,7 @@ class BaseballGame {
     
     /// 게임을 시작하는 함수
     func start() {
-        self.numBall = makeAnswer()
+        self.numBall = makeNumBall()
         play()
     }
     
@@ -43,20 +43,18 @@ class BaseballGame {
     }
     
     /// 정답을 생성하는 함수
-    func makeAnswer() -> [String] {
+    func makeNumBall() -> [String] {
+        var isValid = false
+        var randomNum: Int = 0
         
-        // while 반복문 사용
-        // 조건 1 : 100~999 까지의 난수를 생성
-        // 조건 2 : 반복되는 숫자가 없는지 확인
-        // array.filter{$0 == 비교할 숫자}.count
-        // 해당 숫자를 문자열로 반환
-        var answer: [String] = []
-        
-        // 난수생성 3회 반복
-        for _ in 0..<3 {
-            answer.append(String(Int.random(in: 1...9)))
+        while !isValid {
+            randomNum = Int.random(in: 100...999)
+            // Set을 활용하여 Set의 크기가 3이면 반환한다.
+            if Set(String(randomNum).map{ $0 }).count == 3 {
+                isValid = true
+                return String(randomNum).map{ String($0) }
+            }
         }
-        return answer
     }
     
     /// 입력값이 올바른지 확인하는 함수(1~9가 입력되어야한다.)
