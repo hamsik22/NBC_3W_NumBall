@@ -12,9 +12,9 @@ let game = BaseballGame()
 var userChoice = ""
 
 print(SystemMessage.welcome)
-userChoice = readLine()!
 
 while true {
+    userChoice = readLine()!
     switch userChoice {
     case "1":
         game.start()
