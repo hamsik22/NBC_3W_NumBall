@@ -14,12 +14,15 @@ var userChoice = ""
 print(SystemMessage.welcome)
 userChoice = readLine()!
 
-switch userChoice {
-case "1":
-    game.start()
-case "2":
-    game.printGameLog()
-default:
-    print(SystemMessage.wrongInput)
-    exit(0)
+while true {
+    switch userChoice {
+    case "1":
+        game.start()
+    case "2":
+        game.printGameLog()
+    case "3":
+        game.exitProgram()
+    default:
+        print(SystemMessage.wrongInput)
+    }
 }

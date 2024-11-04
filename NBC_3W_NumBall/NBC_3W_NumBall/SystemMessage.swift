@@ -13,6 +13,7 @@ enum SystemMessage {
     static let gameStart = "< 게임을 시작합니다 >\n숫자를 입력하세요"
     static let correctAnswer = "정답입니다!"
     static let gameLog = "< 게임 기록 보기 >"
+    static let exit = "< 숫자 야구 게임을 종료합니다 >"
     
     static func printStrikeMessage(score: Int) -> String {
         return "\(score) 스트라이크"

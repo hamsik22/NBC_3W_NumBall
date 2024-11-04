@@ -18,6 +18,12 @@ class BaseballGame {
     private var gameCount: Int = 0
     private var gameLog: [(Int, Int)] = []
     
+    /// 프로그램을 종료하는 함수
+    func exitProgram() {
+        print(SystemMessage.exit)
+        exit(0)
+    }
+    
     /// 게임을 시작하는 함수
     func start() {
         self.numBall = makeNumBall()
