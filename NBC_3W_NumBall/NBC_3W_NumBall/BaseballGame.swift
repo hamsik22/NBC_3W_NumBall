@@ -17,7 +17,7 @@ class BaseballGame {
     
     /// 게임을 시작하는 함수
     func start() {
-        self.numBall = makeAnswer()
+        self.numBall = makeNumBall()
         play()
     }
     
@@ -30,7 +30,7 @@ class BaseballGame {
                 print("올바르지 않은 입력값입니다.")
                 continue
             }
-            self.checkAnswer(input: answer)
+            self.checkAnswer(answer: answer)
             self.printHint()
         }
         
@@ -43,14 +43,18 @@ class BaseballGame {
     }
     
     /// 정답을 생성하는 함수
-    func makeAnswer() -> [String] {
-        var answer: [String] = []
+    func makeNumBall() -> [String] {
+        var isValid = false
+        var randomNum: Int = 0
         
-        // 난수생성 3회 반복
-        for _ in 0..<3 {
-            answer.append(String(Int.random(in: 1...9)))
+        while !isValid {
+            randomNum = Int.random(in: 100...999)
+            // Set을 활용하여 Set의 크기가 3이면 반환한다.
+            if Set(String(randomNum).map{ $0 }).count == 3 {
+                isValid = true
+                return String(randomNum).map{ String($0) }
+            }
         }
-        return answer
     }
     
     /// 입력값이 올바른지 확인하는 함수(1~9가 입력되어야한다.)
@@ -60,19 +64,19 @@ class BaseballGame {
     }
     
     /// 정답을 비교하는 함수
-    func checkAnswer(input: String) {
+    func checkAnswer(answer: String) {
         self.strike = 0
         self.ball = 0
-        let inputArray = { input.map{ String($0) } }()
+        let answerArray = { answer.map{ String($0) } }()
         
         for i in 0..<3 {
-            if numBall[i] == inputArray[i] {
+            if numBall[i] == answerArray[i] {
                 self.strike += 1
-            } else if numBall.contains(inputArray[i]) {
+            } else if numBall.contains(answerArray[i]) {
                 self.ball += 1
             }
             
-            if numBall == inputArray {
+            if numBall == answerArray {
                 self.isAnswerCorrect = true
             }
         }
