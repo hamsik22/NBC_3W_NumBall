@@ -30,7 +30,7 @@ class BaseballGame {
                 print("올바르지 않은 입력값입니다.")
                 continue
             }
-            self.checkAnswer(input: answer)
+            self.checkAnswer(answer: answer)
             self.printHint()
         }
         
@@ -44,6 +44,12 @@ class BaseballGame {
     
     /// 정답을 생성하는 함수
     func makeAnswer() -> [String] {
+        
+        // while 반복문 사용
+        // 조건 1 : 100~999 까지의 난수를 생성
+        // 조건 2 : 반복되는 숫자가 없는지 확인
+        // array.filter{$0 == 비교할 숫자}.count
+        // 해당 숫자를 문자열로 반환
         var answer: [String] = []
         
         // 난수생성 3회 반복
@@ -60,19 +66,19 @@ class BaseballGame {
     }
     
     /// 정답을 비교하는 함수
-    func checkAnswer(input: String) {
+    func checkAnswer(answer: String) {
         self.strike = 0
         self.ball = 0
-        let inputArray = { input.map{ String($0) } }()
+        let answerArray = { answer.map{ String($0) } }()
         
         for i in 0..<3 {
-            if numBall[i] == inputArray[i] {
+            if numBall[i] == answerArray[i] {
                 self.strike += 1
-            } else if numBall.contains(inputArray[i]) {
+            } else if numBall.contains(answerArray[i]) {
                 self.ball += 1
             }
             
-            if numBall == inputArray {
+            if numBall == answerArray {
                 self.isAnswerCorrect = true
             }
         }
