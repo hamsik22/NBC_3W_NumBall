@@ -9,5 +9,18 @@ import Foundation
 // 게임 인스턴스 생성
 let game = BaseballGame()
 
-// 게임 시작하기
-game.start()
+var userChoice = ""
+
+print("""
+환영합니다! 원하시는 번호를 입력해주세요
+1. 게임시작하기  2. 게임 기록 보기  3. 종료하기
+""")
+userChoice = readLine()!
+
+switch userChoice {
+case "1":
+    game.start()
+default:
+    print("잘못된 입력입니다.")
+    exit(0)
+}
