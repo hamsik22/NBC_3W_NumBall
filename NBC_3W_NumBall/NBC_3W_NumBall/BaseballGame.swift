@@ -14,6 +14,9 @@ class BaseballGame {
     private var isAnswerCorrect: Bool = false
     private var strike: Int = 0
     private var ball: Int = 0
+    private var answerCount: Int = 0
+    private var gameCount: Int = 0
+    private var gameLog: [(Int, Int)] = []
     
     /// 게임을 시작하는 함수
     func start() {
@@ -21,25 +24,49 @@ class BaseballGame {
         play()
     }
     
+    func printGameLog() {
+        SystemMessage.printGameLog(logs: self.gameLog)
+    }
+    
     /// 게임을 진행하는 함수
     func play() {
-        print("< 게임을 시작합니다 >\n숫자를 입력하세요")
+        print(SystemMessage.gameStart)
         while !isAnswerCorrect {
             self.answer = getAnswer()
             guard isCorrectAnswer(answer: answer) else {
-                print("올바르지 않은 입력값입니다.")
+                print(SystemMessage.wrongInput)
                 continue
             }
             self.checkAnswer(answer: answer)
             self.printHint()
+            self.increaseCount()
         }
-        
-        print("정답입니다!")
+        // 정답을 맞추면 게임 기록을 저장해야한다.
+        self.increaseGameCount()
+        self.saveGameInfo()
+        self.initGameInfo()
+        print(SystemMessage.correctAnswer)
     }
     
     /// 입력값을 반환하는 함수
     func getAnswer() -> String {
         readLine()!
+    }
+    
+    func increaseCount() {
+        self.answerCount += 1
+    }
+    
+    func increaseGameCount() {
+        self.gameCount += 1
+    }
+    
+    func saveGameInfo() {
+        self.gameLog.append((self.gameCount, self.answerCount))
+    }
+    
+    func initGameInfo() {
+        self.answerCount = 0
     }
     
     /// 정답을 생성하는 함수
@@ -85,11 +112,11 @@ class BaseballGame {
     /// 힌트를 출력하는 함수
     func printHint() {
         if self.strike > 0 && self.ball > 0 {
-            print("\(strike)스트라이크 \(ball)볼")
+            print(SystemMessage.printSTandBLMessage(strike: strike, ball: ball))
         } else if self.strike > 0 {
-            print("\(strike) 스트라이크")
+            print(SystemMessage.printStrikeMessage(score: strike))
         } else if self.ball > 0 {
-            print("\(ball) 볼")
+            print(SystemMessage.printBallMessage(score: ball))
         }
     }
     
