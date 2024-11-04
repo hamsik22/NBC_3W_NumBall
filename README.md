@@ -10,5 +10,5 @@
 - [x] Lv2(~11/06) : [숫자 입력 & 힌트 출력 & 예외처리](https://github.com/hamsik22/NBC_3W_NumBall/pull/2)
 - [x] Lv3(~11/06) : [정답 숫자를 `0~9`의 서로 다른 숫자로 변경](https://github.com/hamsik22/NBC_3W_NumBall/pull/3)
 - [x] Lv4(~11/07) : [프로그램 시작 안내문구](https://github.com/hamsik22/NBC_3W_NumBall/pull/4)
-- [ ] Lv5(~11/07) : 게임 기록 보기 기능
+- [x] Lv5(~11/07) : [게임 기록 보기 기능](https://github.com/hamsik22/NBC_3W_NumBall/pull/5)
 - [ ] Lv6(~11/07) : 프로그램 종료 & 예외 입력값 처리
