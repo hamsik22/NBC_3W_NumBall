@@ -6,6 +6,8 @@
 //
 import Foundation
 
+// 게임 인스턴스 생성
 let game = BaseballGame()
-game.start()
 
+// 게임 시작하기
+game.start()
