@@ -17,6 +17,8 @@ userChoice = readLine()!
 switch userChoice {
 case "1":
     game.start()
+case "2":
+    game.printGameLog()
 default:
     print(SystemMessage.wrongInput)
     exit(0)
