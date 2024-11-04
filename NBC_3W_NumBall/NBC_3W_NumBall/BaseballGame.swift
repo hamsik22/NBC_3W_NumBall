@@ -23,8 +23,8 @@ class BaseballGame {
     
     /// 게임을 진행하는 함수
     func play() {
+        print("게임 시작!")
         while !isAnswerCorrect {
-            print("\(isAnswerCorrect)")
             self.answer = getAnswer()
             guard isCorrectAnswer(answer: answer) else {
                 print("올바르지 않은 입력값입니다.")
