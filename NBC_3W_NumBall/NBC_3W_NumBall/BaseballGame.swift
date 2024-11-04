@@ -23,18 +23,18 @@ class BaseballGame {
     
     /// 게임을 진행하는 함수
     func play() {
-        print("< 게임을 시작합니다 >\n숫자를 입력하세요")
+        print(SystemMessage.gameStart)
         while !isAnswerCorrect {
             self.answer = getAnswer()
             guard isCorrectAnswer(answer: answer) else {
-                print("올바르지 않은 입력값입니다.")
+                print(SystemMessage.wrongInput)
                 continue
             }
             self.checkAnswer(answer: answer)
             self.printHint()
         }
         
-        print("정답입니다!")
+        print(SystemMessage.correctAnswer)
     }
     
     /// 입력값을 반환하는 함수
@@ -85,11 +85,11 @@ class BaseballGame {
     /// 힌트를 출력하는 함수
     func printHint() {
         if self.strike > 0 && self.ball > 0 {
-            print("\(strike)스트라이크 \(ball)볼")
+            print(SystemMessage.printSTandBLMessage(strike: strike, ball: ball))
         } else if self.strike > 0 {
-            print("\(strike) 스트라이크")
+            print(SystemMessage.printStrikeMessage(score: strike))
         } else if self.ball > 0 {
-            print("\(ball) 볼")
+            print(SystemMessage.printBallMessage(score: ball))
         }
     }
     
