@@ -6,23 +6,6 @@
 //
 import Foundation
 
-// 게임 인스턴스 생성
-let game = BaseballGame()
 
-var userChoice = ""
-
-print(SystemMessage.welcome)
-
-while true {
-    userChoice = readLine()!
-    switch userChoice {
-    case "1":
-        game.start()
-    case "2":
-        game.printGameLog()
-    case "3":
-        game.exitProgram()
-    default:
-        print(SystemMessage.wrongInput)
-    }
-}
+// 프로그램 시작
+SystemManager.shared.startProgram()
