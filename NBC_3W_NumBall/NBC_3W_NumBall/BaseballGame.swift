@@ -18,18 +18,14 @@ class BaseballGame {
     private var gameCount: Int = 0
     private var gameLog: [(Int, Int)] = []
     
-    /// 프로그램을 종료하는 함수
-    func exitProgram() {
-        print(SystemMessage.exit)
-        exit(0)
-    }
-    
     /// 게임을 시작하는 함수
     func start() {
         self.numBall = makeNumBall()
+        print(numBall)
         play()
     }
     
+    /// 게임 기록을 출력하는 함수
     func printGameLog() {
         SystemMessage.printGameLog(logs: self.gameLog)
     }
@@ -59,18 +55,22 @@ class BaseballGame {
         readLine()!
     }
     
+    /// 응답횟수를 증가시키는 함수
     func increaseCount() {
         self.answerCount += 1
     }
     
+    /// 게임횟수를 증가시키는 함수
     func increaseGameCount() {
         self.gameCount += 1
     }
     
+    /// 게임횟수, 응답횟수를 저장하는 함수
     func saveGameInfo() {
         self.gameLog.append((self.gameCount, self.answerCount))
     }
     
+    /// 이전 게임 정보를 초기화하는 함수
     func initGameInfo() {
         self.answerCount = 0
     }
