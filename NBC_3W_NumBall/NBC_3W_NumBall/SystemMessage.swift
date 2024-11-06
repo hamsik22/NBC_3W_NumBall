@@ -17,16 +17,40 @@ struct SystemMessage {
     static let gameLog = "< 게임 기록 보기 >"
     static let exit = "< 숫자 야구 게임을 종료합니다 >"
     
-    static func printStrikeMessage(score: Int) -> String {
-        return "\(score) 스트라이크"
+    static func printWelcomeMessage() {
+        print(SystemMessage.welcome)
     }
     
-    static func printBallMessage(score: Int) -> String {
-        return "\(score) 볼"
+    static func printOptionList() {
+        print(SystemMessage.optionList)
     }
     
-    static func printSTandBLMessage(strike: Int, ball: Int) -> String {
-        return "\(strike) 스트라이크 \(ball)볼"
+    static func printCorrectAnswerMessage() {
+        print(SystemMessage.correctAnswer)
+    }
+    
+    static func printWrongInputMessage() {
+        print(SystemMessage.wrongInput)
+    }
+    
+    static func printExitMessage() {
+        print(SystemMessage.exit)
+    }
+    
+    static func printGameStartMessage() {
+        print(SystemMessage.gameStart)
+    }
+    
+    static func printStrikeMessage(score: Int) {
+        print("\(score) 스트라이크")
+    }
+    
+    static func printBallMessage(score: Int) {
+        print("\(score) 볼")
+    }
+    
+    static func printSTandBLMessage(strike: Int, ball: Int) {
+        print("\(strike) 스트라이크 \(ball)볼")
     }
     
     static func printGameLog(logs: [(gameNumber: Int, answerCount: Int)]) {
