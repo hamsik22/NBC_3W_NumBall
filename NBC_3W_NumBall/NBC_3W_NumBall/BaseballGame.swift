@@ -21,6 +21,7 @@ class BaseballGame {
     /// 게임을 시작하는 함수
     func start() {
         self.numBall = makeNumBall()
+        // 정답 출력 문구(테스트를 위한 출력)
         print(numBall)
         play()
     }
@@ -32,11 +33,11 @@ class BaseballGame {
     
     /// 게임을 진행하는 함수
     func play() {
-        print(SystemMessage.gameStart)
+        SystemMessage.printGameStartMessage()
         while !isAnswerCorrect {
             self.answer = getAnswer()
             guard isCorrectAnswer(answer: answer) else {
-                print(SystemMessage.wrongInput)
+                SystemMessage.printWrongInputMessage()
                 continue
             }
             self.checkAnswer(answer: answer)
@@ -47,7 +48,7 @@ class BaseballGame {
         self.increaseGameCount()
         self.saveGameInfo()
         self.initGameInfo()
-        print(SystemMessage.correctAnswer)
+        SystemMessage.printCorrectAnswerMessage()
     }
     
     /// 입력값을 반환하는 함수
@@ -118,11 +119,11 @@ class BaseballGame {
     /// 힌트를 출력하는 함수
     func printHint() {
         if self.strike > 0 && self.ball > 0 {
-            print(SystemMessage.printSTandBLMessage(strike: strike, ball: ball))
+            SystemMessage.printSTandBLMessage(strike: strike, ball: ball)
         } else if self.strike > 0 {
-            print(SystemMessage.printStrikeMessage(score: strike))
+            SystemMessage.printStrikeMessage(score: strike)
         } else if self.ball > 0 {
-            print(SystemMessage.printBallMessage(score: ball))
+            SystemMessage.printBallMessage(score: ball)
         }
     }
     
