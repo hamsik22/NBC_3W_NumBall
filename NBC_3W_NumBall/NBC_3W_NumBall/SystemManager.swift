@@ -21,7 +21,7 @@ class SystemManager {
         printWelcomeMessage()
         while true {
             // 옵션을 선택하는 문구
-            print(SystemMessage.optionList)
+            SystemMessage.printOptionList()
             // 옵션을 처리하는 함수
             processMenuSelection(selection: readLine()!)
         }
@@ -37,13 +37,13 @@ class SystemManager {
         case "3":
             exitProgram()
         default:
-            print(SystemMessage.wrongInput)
+            SystemMessage.printWrongInputMessage()
         }
     }
     
     // 환영 문구를 출력하는 함수
     private func printWelcomeMessage() {
-        print(SystemMessage.welcome)
+        SystemMessage.printWelcomeMessage()
     }
     
     // 게임을 시작하는 함수
@@ -58,7 +58,7 @@ class SystemManager {
     
     // 프로그램을 종료하는 함수
     private func exitProgram() {
-        print(SystemMessage.exit)
+        SystemMessage.printExitMessage()
         exit(0)
     }
     
