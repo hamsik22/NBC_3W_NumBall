@@ -12,3 +12,7 @@
 - [x] Lv4(~11/07) : [프로그램 시작 안내문구](https://github.com/hamsik22/NBC_3W_NumBall/pull/4)
 - [x] Lv5(~11/07) : [게임 기록 보기 기능](https://github.com/hamsik22/NBC_3W_NumBall/pull/5)
 - [x] Lv6(~11/07) : [프로그램 종료 & 예외 입력값 처리](https://github.com/hamsik22/NBC_3W_NumBall/pull/6)
+# 피드백 반영
+- [ ] [#10(작업중)](https://github.com/hamsik22/NBC_3W_NumBall/issues/10) : 코드 분리, 세분화
+- [x] [#11(완료)](https://github.com/hamsik22/NBC_3W_NumBall/issues/11) : 책임 분리
+- [x] [#12(완료)](https://github.com/hamsik22/NBC_3W_NumBall/issues/12) : enum -> struct
